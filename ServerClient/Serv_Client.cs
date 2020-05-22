@@ -1,7 +1,7 @@
 ﻿using System;
 using Network;
 using Network.Enums;
-
+using Network.Converter;
 namespace ServerClient
 {
     public class Server
@@ -9,7 +9,7 @@ namespace ServerClient
         public void Main()
         {
             //1. Create a new server container.
-            ServerConnectionContainer serverConnectionContainer = ConnectionFactory.CreateServerConnectionContainer(8888, false);
+            ServerConnectionContainer serverConnectionContainer = ConnectionFactory.CreateServerConnectionContainer(1234, false);
             //2. Apply some settings
             serverConnectionContainer.AllowUDPConnections = true;
             //3. Set a delegate which will be called if we receive a connection
@@ -34,10 +34,11 @@ namespace ServerClient
     }
     public class Client
     {
+        private ClientConnectionContainer clientConnectionContainer;
         public void Main()
         {
             //1. Create a new client connection container.
-            ClientConnectionContainer clientConnectionContainer = ConnectionFactory.CreateClientConnectionContainer("192.168.1.104", 8888);
+            clientConnectionContainer = ConnectionFactory.CreateClientConnectionContainer("25.45.68.152", 1234);
             //2. Setup events which will be fired if we receive a connection
             clientConnectionContainer.ConnectionEstablished += ClientConnectionContainer_ConnectionEstablished;
             clientConnectionContainer.ConnectionLost += ClientConnectionContainer_ConnectionLost;
@@ -51,6 +52,10 @@ namespace ServerClient
         private void ClientConnectionContainer_ConnectionEstablished(Connection connection, Network.Enums.ConnectionType connectionType)
         {
             Console.WriteLine($"{connectionType} Connection received {connection.IPRemoteEndPoint}.");
+        }
+        private void Send(string Data)
+        {
+            
         }
     }
 }
