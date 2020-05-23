@@ -9,7 +9,8 @@ namespace ServerClient
         public void Main()
         {
             //1. Create a new server container.
-            ServerConnectionContainer serverConnectionContainer = ConnectionFactory.CreateServerConnectionContainer(1234, false);
+            
+            ServerConnectionContainer serverConnectionContainer = ConnectionFactory.CreateServerConnectionContainer("127.0.0.1", 1234, false);
             //2. Apply some settings
             serverConnectionContainer.AllowUDPConnections = true;
             //3. Set a delegate which will be called if we receive a connection
@@ -18,7 +19,7 @@ namespace ServerClient
             serverConnectionContainer.ConnectionLost += ServerConnectionContainer_ConnectionLost;
             //4. Start listening on port 1234
             serverConnectionContainer.StartTCPListener();
-
+            
             Console.ReadLine();
         }
 
@@ -37,13 +38,14 @@ namespace ServerClient
         private ClientConnectionContainer clientConnectionContainer;
         public void Main()
         {
+            
             //1. Create a new client connection container.
-            clientConnectionContainer = ConnectionFactory.CreateClientConnectionContainer("25.45.68.152", 1234);
+            clientConnectionContainer = ConnectionFactory.CreateClientConnectionContainer("127.0.0.1", 1234);
             //2. Setup events which will be fired if we receive a connection
             clientConnectionContainer.ConnectionEstablished += ClientConnectionContainer_ConnectionEstablished;
             clientConnectionContainer.ConnectionLost += ClientConnectionContainer_ConnectionLost;
         }
-
+        
         private void ClientConnectionContainer_ConnectionLost(Connection connection, Network.Enums.ConnectionType connectionType, Network.Enums.CloseReason closeReason)
         {
             Console.WriteLine($"Connection {connection.IPRemoteEndPoint} {connectionType} lost. {closeReason}");

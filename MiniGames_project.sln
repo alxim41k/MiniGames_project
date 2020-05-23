@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerClient", "MiniGames_project\ServerClient\ServerClient.csproj", "{484EE7C4-8C11-4F3D-8563-C7067E73D335}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerClient", "ServerClient\ServerClient.csproj", "{484EE7C4-8C11-4F3D-8563-C7067E73D335}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "MiniGames_project\Testing\Testing.csproj", "{6DD48F83-7F24-4C86-A895-06737884E4A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{6DD48F83-7F24-4C86-A895-06737884E4A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTest", "ClientTest\ClientTest.csproj", "{D1AFE3BD-5657-4754-AA12-1A51EC67152C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6DD48F83-7F24-4C86-A895-06737884E4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DD48F83-7F24-4C86-A895-06737884E4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DD48F83-7F24-4C86-A895-06737884E4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1AFE3BD-5657-4754-AA12-1A51EC67152C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1AFE3BD-5657-4754-AA12-1A51EC67152C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1AFE3BD-5657-4754-AA12-1A51EC67152C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1AFE3BD-5657-4754-AA12-1A51EC67152C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
