@@ -1,13 +1,11 @@
 ﻿using System;
-using ServerClient;
+using Classes;
 namespace ClientTest
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var c = new Client();
-            c.Main();
         }
     }
 }
