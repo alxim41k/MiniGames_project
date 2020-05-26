@@ -27,7 +27,19 @@ namespace Launcher
             }
             else
             {
+                Form2 testDialog = new Form2();
 
+                // Show testDialog as a modal dialog and determine if DialogResult = OK.
+                if (testDialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    // Read the contents of testDialog's TextBox.
+                    String Text = testDialog.textBox1.Text;
+                }
+                else
+                {
+                    string Text = "Cancelled";
+                }
+                testDialog.Dispose();
                 player = new Player();
                 string playerData = JsonConvert.SerializeObject(player);
                 File.Create(path);
