@@ -9,7 +9,7 @@ namespace Classes
 {
     public class Server
     {
-        private ServerConnectionContainer serverConnectionContainer;
+        public ServerConnectionContainer serverConnectionContainer;
         public Server(int port, string ip)
         {
             serverConnectionContainer = ConnectionFactory.CreateServerConnectionContainer(ip, port, false);
@@ -17,14 +17,21 @@ namespace Classes
         }
         private void connectionEstablished(Connection connection, ConnectionType type)
         {
-
+            
         }
 
     }
     public class Client
     {
-        public void Main()
+        public ClientConnectionContainer clientConnectionContainer;
+        public Client(string ip, int port)
         {
+            clientConnectionContainer = ConnectionFactory.CreateClientConnectionContainer(ip, port);
+            clientConnectionContainer.ConnectionEstablished += connectionEstablished;
+        }
+        private void connectionEstablished(Connection connection, ConnectionType type)
+        {
+
         }
 
     }

@@ -7,6 +7,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
         }
     }
 }

@@ -18,33 +18,9 @@ namespace Launcher
         public Form1()
         {
             InitializeComponent();
-            string foldername = "minigamesData";
-            string path = Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), foldername,"playerData.json");
-            
-            if (File.Exists(path))
-            {
-                player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(path));
-            }
-            else
-            {
-                Form2 testDialog = new Form2();
-
-                // Show testDialog as a modal dialog and determine if DialogResult = OK.
-                if (testDialog.ShowDialog(this) == DialogResult.OK)
-                {
-                    // Read the contents of testDialog's TextBox.
-                    String Text = testDialog.textBox1.Text;
-                }
-                else
-                {
-                    string Text = "Cancelled";
-                }
-                testDialog.Dispose();
-                player = new Player();
-                string playerData = JsonConvert.SerializeObject(player);
-                File.Create(path);
-                File.WriteAllText(path, playerData);
-            }
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -52,72 +28,29 @@ namespace Launcher
 
         }
 
-        private void panel5_Click(object sender, EventArgs e)
-        {
-            if (button1.Visible == false && button2.Visible == false)
-            {
-                button1.Visible = true;
-                button2.Visible = true;
-            }
-            else
-            {
-                button1.Visible = false;
-                button2.Visible = false;
-            }
-        }
-        private void panel6_Click(object sender, EventArgs e)
-        {
-            if (button3.Visible == false && button4.Visible == false)
-            {
-                button3.Visible = true;
-                button4.Visible = true;
-            }
-            else
-            {
-                button3.Visible = false;
-                button4.Visible = false;
-            }
-        }
-        private void panel7_Click(object sender, EventArgs e)
-        {
-            if (button5.Visible == false && button6.Visible == false)
-            {
-                button5.Visible = true;
-                button6.Visible = true;
-            }
-            else
-            {
-                button5.Visible = false;
-                button6.Visible = false;
-            }
-        }
-        private void panel8_Click(object sender, EventArgs e)
-        {
-            if (button7.Visible == false && button8.Visible == false)
-            {
-                button7.Visible = true;
-                button8.Visible = true;
-            }
-            else
-            {
-                button7.Visible = false;
-                button8.Visible = false;
-            }
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            OpenFileDialog fl = new OpenFileDialog();
+            fl.Filter = "jpg|*jpg|png | *png";
+            fl.Title = "ProfileImage";
+            fl.CheckFileExists = true;
+            if(fl.ShowDialog() == DialogResult.OK)
+            {
+                
+                pictureBox1.Image = Image.FromFile(fl.FileName);
+            }
+        }
 
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            Form2 Dialog = new Form2();
+            if (Dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                if (Dialog.textBox1.Text != "")
+                {
+                    label1.Text = Dialog.textBox1.Text;
+                }
+            }
         }
     }
 }
