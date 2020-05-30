@@ -18,7 +18,7 @@ namespace Launcher
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-           
+            comboBox1.SelectedIndex = 0;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -68,10 +68,6 @@ namespace Launcher
                             Form3 client = new Form3(port, ip, pictureBox1.Image, label1.Text,3);
                             client.Show();
                             break;
-                        case "Pong":
-                            break;
-                        case "Poker":
-                            break;
                     }
                 }
 
@@ -103,11 +99,6 @@ namespace Launcher
                             TicTocToe_server server = new TicTocToe_server(ip, port);
                             Form3 client = new Form3(port,ip,pictureBox1.Image,label1.Text,3);
                             client.Show();
-
-                            break;
-                        case "Pong":
-                            break;
-                        case "Poker":
                             break;
                     }
                 }

@@ -19,7 +19,7 @@ namespace Launcher
     public partial class TicTocToe_server : Form
     {
         private ServerConnectionContainer serverConnection;
-        private const bool Debug = true;
+        private const bool Debug = false;
         Player p1;
         Player p2;
         Random r = new Random();
@@ -245,7 +245,7 @@ namespace Launcher
         }
         private void connectionLost(Connection con, ConnectionType conType,Network.Enums.CloseReason reason)
         {
-            MessageBox.Show($"Connection lost{con.IPLocalEndPoint}, {reason}", "lost");
+
         }
 
         public int[] map = new int[] 

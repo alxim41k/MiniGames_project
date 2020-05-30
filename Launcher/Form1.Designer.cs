@@ -116,7 +116,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(860, 490);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Launcher";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
