@@ -17,12 +17,11 @@ namespace Launcher
         public Connection con;
         public Image pic;
         public bool ready;
-        public Player(string nick, Image pic, Connection con)
+        public bool turn;
+        public bool FirstTurn;
+        public Player(Connection con)
         {
-            this.nick = nick;
-            this.pic = pic;
             this.con = con;
-            ready = false;
         }
             
     }
@@ -39,44 +38,5 @@ namespace Launcher
             return (byte[])imageConverter.ConvertTo(image, typeof(byte[]));
         }
     }
-    public class ProfileDataUpload : RequestPacket
-    {
-        public ProfileDataUpload(byte[] pic, string nick)
-        {
-            this.pic = pic;
-            this.nick = nick;
-        }
-
-        public byte[] pic { get; set; }
-
-        public string nick{ get; set; }
-
-    }
-    [PacketRequest(typeof(ProfileDataUpload))]
-    public class ProfileDataResponse : ResponsePacket
-    {
-        public ProfileDataResponse(RequestPacket request)
-            : base(request)
-        {
-
-        }
-    }
-    public class ProfileDataGetRequest : RequestPacket
-    {
-        public ProfileDataGetRequest()
-        {
-        }
-    }
-    [PacketRequest(typeof(ProfileDataGetRequest))]
-    public class ProfileDataGetResponse : ResponsePacket
-    {
-        public ProfileDataGetResponse(byte[] pic, string nick,RequestPacket request)
-            : base(request)
-        {
-            this.pic = pic;
-            this.nick = nick;
-        }
-        public byte[] pic { get; set; }
-        public string nick { get; set; }
-    }
+   
 }
